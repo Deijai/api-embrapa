@@ -17,15 +17,19 @@ export class ApiService {
     competenciaInicial: string,
     competenciaFinal: string
   ): Observable<Carteira> {
-
+    const headers = new HttpHeaders()
+      .set('content-type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
 
     const body = {
       cartao,
       competenciaInicial,
       competenciaFinal,
     };
-    console.log('body: ', body);
+    console.log('headers: ', headers, 'body: ', body);
     return this.http.post<Carteira>(`${url}`, body, {
+      headers: headers,
       withCredentials: false,
       responseType: 'json'
     });
