@@ -20,7 +20,9 @@ export class ApiService {
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+      .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT')
+      .set('requestCert', 'false')
+      .set('insecure', 'true');
 
     const body = {
       cartao,
