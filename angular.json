@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "api-embrapa"
+  "defaultProject": "api-embrapa",
+  "cli": {
+    "analytics": "1bbb9ce7-9838-4e2a-b6e6-c8c14f939aef"
+  }
 }

@@ -1,0 +1,93 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Buscar Carteirinha</h1>
+      <div class="col col-sm-12">
+        <form (ngSubmit)="pesquisar()" #form="ngForm">
+
+          <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Cartao</label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Cartao"
+                [ngModel]="cartao"
+                name="cartao"
+                min="8"
+                required
+              />
+              <span *ngIf="validateCartao()" class="form-text text-danger">
+                deve ser 10 letras</span
+              >
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Competencia Inicial</label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Competencia Inicial"
+                [ngModel]="competenciaInicial"
+                name="competenciaInicial"
+                min="6"
+                required
+              />
+              <span *ngIf="validateCartao()" class="form-text text-danger">
+                deve ser 10 letras</span
+              >
+            </div>
+          </div>
+
+
+          <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Competencia Final</label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Competencia Final"
+                [ngModel]="competenciaFinal"
+                name="competenciaFinal"
+                min="6"
+                required
+              />
+              <span *ngIf="validateCartao()" class="form-text text-danger">
+                deve ser 10 letras</span
+              >
+            </div>
+          </div>
+
+
+
+
+
+          <div class="row">
+            <div class="col col-sm-12">
+              <button
+                type="button"
+                [disabled]="form.invalid"
+                class="btn btn-primary float-end"
+                (click)="pesquisar()"
+              >
+                Pesquisar
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <span>é válido? {{ form.valid | json }}</span>
+            <hr />
+            <span>é válido? {{ form.value | json }}</span>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      Column
+    </div>
+  </div>
+</div>
