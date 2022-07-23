@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
       this.apiService.getCarteira(this.cartao, this.competenciaInicial, this.competenciaFinal).subscribe( res => {
         this.data = res;
 
-        console.log('res: ', res);
+        console.log('res: ',res);
 
       })
     }
