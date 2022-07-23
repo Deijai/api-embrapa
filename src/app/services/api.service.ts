@@ -37,8 +37,10 @@ export class ApiService {
     return this.http.post<Carteira>(`${url}`, body, {
       headers: headers,
       withCredentials: false,
+      reportProgress: false,
       responseType: 'json',
       params: url_params,
+      observe: 'body',
     });
   }
 }
