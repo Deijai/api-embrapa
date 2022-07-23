@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Carteira } from '../interfaces';
@@ -20,9 +20,13 @@ export class ApiService {
     const headers = new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT')
+      .set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+
+      const url_params = new HttpParams()
+      .set('rejectUnauthorized', 'false')
       .set('requestCert', 'false')
-      .set('insecure', 'true');
+      .set('insecure', 'true')
+
 
     const body = {
       cartao,
@@ -33,7 +37,8 @@ export class ApiService {
     return this.http.post<Carteira>(`${url}`, body, {
       headers: headers,
       withCredentials: false,
-      responseType: 'json'
+      responseType: 'json',
+      params: url_params,
     });
   }
 }
